@@ -17,6 +17,10 @@ on:
         type: boolean
         default: true
 
+      secrets:
+        API_TOKEN:
+          required: true
+
     outputs:
       test-result:
         description: "Performance test result"
@@ -51,6 +55,14 @@ jobs:
           echo "Running performance test..."
           echo "Environment: ${{ inputs.environment }}"
           echo "Threads: ${{ inputs.threads }}"
+
+      - name: Check API token
+        run: |
+          if [ -n "${{ secrets.API_TOKEN }}" ]; then
+            echo "API_TOKEN is available"
+          else
+            echo "API_TOKEN is missing"
+          fi
 
   show-result:
     runs-on: ubuntu-latest
