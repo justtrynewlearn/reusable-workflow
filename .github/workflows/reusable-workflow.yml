@@ -17,9 +17,9 @@ on:
         type: boolean
         default: true
 
-      secrets:
-        API_TOKEN:
-          required: true
+    secrets:
+      API_TOKEN:
+        required: true
 
     outputs:
       test-result:
