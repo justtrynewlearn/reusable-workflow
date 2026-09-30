@@ -17,6 +17,11 @@ on:
         type: boolean
         default: true
 
+    outputs:
+      test-result:
+        description: "Performance test result"
+        value: ${{ jobs.reusable-test.outputs.test-result }}
+
 jobs:
   reusable-test:
     runs-on: ubuntu-latest

@@ -11,3 +11,12 @@ jobs:
       environment: staging
       threads: 100
       run_test: false
+
+  show-workflow-result:
+    runs-on: ubuntu-latest
+    needs: call-reusable-workflow
+
+    steps:
+      - name: Show workflow result
+        run: |
+          echo "Workflow result: ${{ needs.call-reusable-workflow.outputs.test-result }}"
