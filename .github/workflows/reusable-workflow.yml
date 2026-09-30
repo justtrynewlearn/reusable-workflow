@@ -52,12 +52,18 @@ jobs:
           echo "Environment: ${{ inputs.environment }}"
           echo "Threads: ${{ inputs.threads }}"
 
-      - name: Check API token
+      - name: Check secrets
         run: |
           if [ -n "${{ secrets.API_TOKEN }}" ]; then
             echo "API_TOKEN is available"
           else
             echo "API_TOKEN is missing"
+          fi
+
+          if [ -n "${{ secrets.MY_SECRET }}" ]; then
+            echo "MY_SECRET is available"
+          else
+            echo "MY_SECRET is missing"
           fi
 
   show-result:
