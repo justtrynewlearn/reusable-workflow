@@ -2,6 +2,14 @@ name: Reusable Workflow
 
 on:
   workflow_call:
+    inputs:
+      environment:
+        required: true
+        type: string
+
+      threads:
+        required: true
+        type: number
 
 jobs:
   reusable-test:
@@ -9,4 +17,6 @@ jobs:
 
     steps:
       - name: Run reusable workflow
-        run: echo "Hello from reusable workflow!"
+        run: |
+          echo "Environment: ${{ inputs.environment }}"
+          echo "Threads: ${{ inputs.threads }}"

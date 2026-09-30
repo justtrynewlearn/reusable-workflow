@@ -6,3 +6,7 @@ on:
 jobs:
   call-reusable-workflow:
     uses: ./.github/workflows/reusable-workflow.yml
+
+    with:
+      environment: staging
+      threads: 50
