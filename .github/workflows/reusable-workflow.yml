@@ -22,8 +22,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Run reusable workflow
+      - name: Show test configuration
         run: |
           echo "Environment: ${{ inputs.environment }}"
           echo "Threads: ${{ inputs.threads }}"
           echo "Run test: ${{ inputs.run_test }}"
+
+      - name: Generate test result
+        id: test-result
+        run: |
+          echo "result=passed" >> "$GITHUB_OUTPUT"
+
+      - name: Show test result
+        run: |
+          echo "Test result: ${{ steps.test-result.outputs.result }}"
+
+      - name: Run performance test
+        if: ${{ inputs.run_test }}
+        run: |
+          echo "Running performance test..."
+          echo "Environment: ${{ inputs.environment }}"
+          echo "Threads: ${{ inputs.threads }}"
