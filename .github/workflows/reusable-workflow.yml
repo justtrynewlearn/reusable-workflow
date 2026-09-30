@@ -17,10 +17,6 @@ on:
         type: boolean
         default: true
 
-    secrets:
-      API_TOKEN:
-        required: true
-
     outputs:
       test-result:
         description: "Performance test result"

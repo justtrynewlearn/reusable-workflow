@@ -12,8 +12,7 @@ jobs:
       threads: 100
       run_test: false
 
-    secrets:
-      API_TOKEN: ${{ secrets.API_TOKEN }}
+    secrets: inherit
 
   show-workflow-result:
     runs-on: ubuntu-latest
