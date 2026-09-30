@@ -9,3 +9,4 @@ jobs:
 
     with:
       environment: staging
+      threads: 100
